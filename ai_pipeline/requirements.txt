@@ -1,0 +1,17 @@
+# ai_pipeline dependencies — VoiceOps Sentinel
+# Install with: pip install -r requirements.txt
+
+# Transcription
+openai-whisper==20231117
+
+# Summarization + Sentiment (OpenAI GPT)
+openai>=1.0.0
+
+# Environment variables
+python-dotenv>=1.0.0
+
+# Audio file handling
+ffmpeg-python>=0.2.0
+
+# Utilities
+pathlib2>=2.3.7
