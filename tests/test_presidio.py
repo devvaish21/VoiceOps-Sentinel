@@ -48,4 +48,3 @@ for t in tests:
     print(f"INPUT:    {t}")
     print(f"REDACTED: {a.text}")
     print()
-    
