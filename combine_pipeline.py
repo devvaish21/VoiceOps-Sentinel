@@ -32,4 +32,4 @@ if __name__ == '__main__':
 
     # This line must also be INSIDE if block!
     result = match_speaker_to_text(transcript, diarization)
-    print(json.dumps(result, indent=2))
+    print(json.dumps(result, indent=2))  
