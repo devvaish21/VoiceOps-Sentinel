@@ -1,0 +1,98 @@
+{
+  "text": "Agent. Thank you for calling fast pay customer support. My name is Priya. How can I help you today? Customer. Hi Priya. I have a serious problem. I was charged three times for my monthly subscription and I want to refund immediately. Agent. I completely understand your concern and I sincerely apologize for the inconvenience. May I have your registered email address to pull up your account? Customer. Sure. It is john.smith.gmail.com. Agent. Thank you, John. I can see your account here. You are right. There are three duplicate charges from this month. I am really sorry about that. Customer. This is unacceptable. I have been a customer for two years and this has never happened before. I am thinking of canceling my subscription. Agent. I completely understand john and I take full responsibility. I will process a full refund for all three duplicate charges right now. You will receive the amount within three to five business days. Customer. Okay. And what about my subscription? Will it still be active? Agent. Absolutely. Your subscription remains fully active. We will also add one month free is compensation for this inconvenience. Customer. Oh okay. That is actually very kind. Thank you. Agent. You are most welcome, John. Is there anything else I can help you with today? Customer. Know that is all. Thank you, Priya. Agent. Thank you for your patience, John. Have a wonderful day. Goodbye.",
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 7.52,
+      "text": "Agent. Thank you for calling fast pay customer support. My name is Priya. How can I help you today?"
+    },
+    {
+      "id": 1,
+      "start": 8.08,
+      "end": 15.04,
+      "text": "Customer. Hi Priya. I have a serious problem. I was charged three times for my monthly"
+    },
+    {
+      "id": 2,
+      "start": 15.04,
+      "end": 22.48,
+      "text": "subscription and I want to refund immediately. Agent. I completely understand your concern and"
+    },
+    {
+      "id": 3,
+      "start": 22.48,
+      "end": 29.2,
+      "text": "I sincerely apologize for the inconvenience. May I have your registered email address to pull up"
+    },
+    {
+      "id": 4,
+      "start": 29.2,
+      "end": 40.24,
+      "text": "your account? Customer. Sure. It is john.smith.gmail.com. Agent. Thank you, John. I can see your account here."
+    },
+    {
+      "id": 5,
+      "start": 40.72,
+      "end": 47.12,
+      "text": "You are right. There are three duplicate charges from this month. I am really sorry about that."
+    },
+    {
+      "id": 6,
+      "start": 47.68,
+      "end": 54.56,
+      "text": "Customer. This is unacceptable. I have been a customer for two years and this has never happened before."
+    },
+    {
+      "id": 7,
+      "start": 55.36,
+      "end": 62.72,
+      "text": "I am thinking of canceling my subscription. Agent. I completely understand john and I take full"
+    },
+    {
+      "id": 8,
+      "start": 62.72,
+      "end": 68.72,
+      "text": "responsibility. I will process a full refund for all three duplicate charges right now."
+    },
+    {
+      "id": 9,
+      "start": 69.52,
+      "end": 76.56,
+      "text": "You will receive the amount within three to five business days. Customer. Okay. And what about"
+    },
+    {
+      "id": 10,
+      "start": 76.56,
+      "end": 84.48,
+      "text": "my subscription? Will it still be active? Agent. Absolutely. Your subscription remains fully"
+    },
+    {
+      "id": 11,
+      "start": 84.48,
+      "end": 93.2,
+      "text": "active. We will also add one month free is compensation for this inconvenience. Customer. Oh okay."
+    },
+    {
+      "id": 12,
+      "start": 93.2,
+      "end": 101.36,
+      "text": "That is actually very kind. Thank you. Agent. You are most welcome, John. Is there anything else I"
+    },
+    {
+      "id": 13,
+      "start": 101.36,
+      "end": 108.96,
+      "text": "can help you with today? Customer. Know that is all. Thank you, Priya. Agent. Thank you for your"
+    },
+    {
+      "id": 14,
+      "start": 108.96,
+      "end": 112.8,
+      "text": "patience, John. Have a wonderful day. Goodbye."
+    }
+  ],
+  "language": "en",
+  "duration_sec": 112.8,
+  "model_used": "base"
+}
