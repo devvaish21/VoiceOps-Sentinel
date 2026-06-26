@@ -29,11 +29,15 @@ if __name__ == '__main__':
 
     # Mock diarization data for testing purposes
     diarization = [
-        {'speaker': 'Speaker A', 'start': 0.03, 'end': 3.6},
-        {'speaker': 'Speaker B', 'start': 4.0, 'end': 8.5},
-        {'speaker': 'Speaker A', 'start': 9.0, 'end': 13.0},
-        {'speaker': 'Speaker B', 'start': 13.0, 'end': 16.5},
-        {'speaker': 'Speaker A', 'start': 80.0, 'end': 87.0},
+        {'speaker': 'Speaker A', 'start': 0.0,   'end': 7.52},
+        {'speaker': 'Speaker B', 'start': 8.08,  'end': 15.04},
+        {'speaker': 'Speaker A', 'start': 15.04, 'end': 29.2},
+        {'speaker': 'Speaker B', 'start': 29.2,  'end': 40.24},
+        {'speaker': 'Speaker A', 'start': 40.72, 'end': 62.72},
+        {'speaker': 'Speaker B', 'start': 62.72, 'end': 76.56},
+        {'speaker': 'Speaker A', 'start': 76.56, 'end': 93.2},
+        {'speaker': 'Speaker B', 'start': 93.2,  'end': 101.36},
+        {'speaker': 'Speaker A', 'start': 101.36,'end': 112.8},
     ]
 
     # Call the function to match speakers to text segments
