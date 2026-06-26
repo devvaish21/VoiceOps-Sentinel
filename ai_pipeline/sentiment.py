@@ -7,13 +7,13 @@ Returns structured sentiment data for the dashboard.
 import os
 import json
 import logging
-from openai import OpenAI
+from groq import Groq
 from dotenv import load_dotenv
 
 load_dotenv()
 logger = logging.getLogger(__name__)
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 SYSTEM_PROMPT = """
 You are a call center sentiment analysis AI.
@@ -62,7 +62,7 @@ def analyze_sentiment(transcript: str) -> dict:
 
     try:
         response = client.chat.completions.create(
-            model="gpt-4o",
+            model="llama-3.3-70b-versatile",
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user",   "content": f"Transcript:\n\n{transcript}"},
