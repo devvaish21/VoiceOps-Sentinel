@@ -15,10 +15,10 @@ def process_transcript(transcript_segments: list) -> dict:
         for seg in transcript_segments
     )
 
-    # Step 1 - Redact PII
+    # Redact PII
     clean_text = redact_pii(full_text)
 
-    # Step 2 - Extract action items
+    # Extract action items
     actions = extract_action_items(clean_text)
 
     return {
@@ -47,10 +47,10 @@ if __name__ == '__main__':
         {'speaker': 'Speaker A', 'start': 101.36, 'end': 112.8},
     ]
 
-    # Step 1 - Combine speakers with transcript
+    # Combine speakers with transcript
     segments = match_speaker_to_text(transcript, diarization)
 
-    # Step 2 - Run master pipeline
+    # Run master pipeline
     result = process_transcript(segments)
 
     print("=== LABELLED TRANSCRIPT ===")
