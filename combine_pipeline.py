@@ -23,7 +23,6 @@ def match_speaker_to_text(transcript_segments, diarization_segments):
     return result
 
 if __name__ == '__main__':
-    # ALL these lines must be INSIDE if block!
     with open('sample_transcript.json', 'r') as f:
         transcript = json.load(f)
 
