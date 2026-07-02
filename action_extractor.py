@@ -27,7 +27,7 @@ TRANSCRIPT:
 {transcript}
 """
     response = client.chat.completions.create(
-        model='llama-3.3-70b-versatile',
+        model='llama3-8b-8192',
         temperature=0.0,
         messages=[{'role':'user','content':prompt}],
     )
