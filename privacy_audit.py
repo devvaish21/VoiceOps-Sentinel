@@ -1,7 +1,7 @@
 from pii_redactor import redact_pii
-
+# Performs a privacy audit by testing the redact_pii function containing PII test cases.
 print("=== PRIVACY AUDIT - 10 PII TEST CASES ===\n")
-
+# Define test cases
 test_cases = [
     "Customer name is John Smith",
     "Phone number is 9876543210",
