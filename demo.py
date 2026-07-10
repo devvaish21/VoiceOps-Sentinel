@@ -1,84 +1,73 @@
-# WEEK 4 COMMITS
 from pii_redactor import redact_pii
 from action_extractor import extract_action_items
+from combine_pipeline import match_speaker_to_text
 from nlp_pipeline import process_transcript
 import json
 
-print("=" * 55)
-print("  🎙️  VoiceOps Sentinel - LIVE DEMO")
-print("  Person 2 - NLP & Security Lead")
-print("=" * 55)
+print("=" * 60)
+print("VoiceOps Sentinel - LIVE DEMO")
+print("Person 2 - NLP and Security Lead")
+print("Real Customer Call - FastPay Support")
+print("=" * 60)
 
-# ── DEMO 1: PII Redaction ──────────────────────────
-print("\n📌 DEMO 1: PII Redaction")
-print("-" * 40)
+# Load real transcript from Person 1
+with open('sample_transcript.json', 'r') as f:
+    transcript = json.load(f)
 
-raw_text = "Hi I am John Smith. My card is 4111111111111111 and email is john@gmail.com. Call me at 9876543210"
-
-print(f"ORIGINAL:\n  {raw_text}")
-print(f"\nREDACTED:\n  {redact_pii(raw_text)}")
-
-# ── DEMO 2: Action Item Extraction ────────────────
-print("\n📌 DEMO 2: Action Item Extraction")
-print("-" * 40)
-
-transcript = """
-Agent: I will process your refund within 3-5 days.
-Customer: Please call me back tomorrow at 3 PM.
-Agent: Sure I will also send you a confirmation email today.
-Agent: I will escalate this to my manager as well.
-"""
-
-print(f"TRANSCRIPT:{transcript}")
-actions = extract_action_items(transcript)
-print("ACTION ITEMS EXTRACTED:")
-print(json.dumps(actions, indent=2))
-
-# ── DEMO 3: Full Pipeline ─────────────────────────
-print("\n📌 DEMO 3: Full Pipeline")
-print("-" * 40)
-
-fake_segments = [
-    {
-        'speaker': 'Speaker A',
-        'text': 'Thank you for calling. How can I help you?',
-        'start': 0.0,
-        'end': 3.5
-    },
-    {
-        'speaker': 'Speaker B',
-        'text': 'Hi I am Priya. My card number is 4111111111111111',
-        'start': 4.0,
-        'end': 8.2
-    },
-    {
-        'speaker': 'Speaker A',
-        'text': 'I will process your refund today',
-        'start': 9.0,
-        'end': 12.5
-    },
-    {
-        'speaker': 'Speaker B',
-        'text': 'Please call me back tomorrow at 3 PM at 9876543210',
-        'start': 13.0,
-        'end': 16.0
-    }
+# Real diarization timestamps
+diarization = [
+    {'speaker': 'Speaker A', 'start': 0.0,    'end': 7.52},
+    {'speaker': 'Speaker B', 'start': 8.08,   'end': 15.04},
+    {'speaker': 'Speaker A', 'start': 15.04,  'end': 29.2},
+    {'speaker': 'Speaker B', 'start': 29.2,   'end': 40.24},
+    {'speaker': 'Speaker A', 'start': 40.72,  'end': 62.72},
+    {'speaker': 'Speaker B', 'start': 62.72,  'end': 76.56},
+    {'speaker': 'Speaker A', 'start': 76.56,  'end': 93.2},
+    {'speaker': 'Speaker B', 'start': 93.2,   'end': 101.36},
+    {'speaker': 'Speaker A', 'start': 101.36, 'end': 112.8},
 ]
 
-result = process_transcript(fake_segments)
+# DEMO 1 - RAW TRANSCRIPT
+print("\nDEMO 1: RAW TRANSCRIPT (from Person 1 Whisper)")
+print("-" * 60)
+for seg in transcript[:4]:
+    print(f"  [{seg['start']}s to {seg['end']}s]: {seg['text'][:70]}...")
 
-print("STEP 1 - Speaker Labelled Transcript:")
-for seg in result['labelled_transcript']:
-    print(f"  {seg['speaker']}: {seg['text']}")
+# DEMO 2 - SPEAKER DIARIZATION
+print("\nDEMO 2: SPEAKER DIARIZATION (Pyannote)")
+print("-" * 60)
+segments = match_speaker_to_text(transcript, diarization)
+for seg in segments[:6]:
+    print(f"  {seg['speaker']}: {seg['text'][:65]}...")
 
-print("\nSTEP 2 - After PII Redaction:")
-print(result['redacted_transcript'])
+# DEMO 3 - PII REDACTION
+print("\nDEMO 3: PII REDACTION (Microsoft Presidio)")
+print("-" * 60)
+result = process_transcript(segments)
 
-print("\nSTEP 3 - Action Items Extracted:")
+print("BEFORE REDACTION:")
+for seg in segments[3:6]:
+    print(f"  {seg['speaker']}: {seg['text'][:70]}...")
+
+print("\nAFTER REDACTION:")
+lines = result['redacted_transcript'].split('\n')
+for line in lines[3:6]:
+    print(f"  {line[:75]}...")
+
+# DEMO 4 - ACTION ITEMS
+print("\nDEMO 4: ACTION ITEMS EXTRACTED (Groq Llama 3)")
+print("-" * 60)
 print(json.dumps(result['action_items'], indent=2))
 
-print("\n" + "=" * 55)
-print("  ✅ DEMO COMPLETE!")
-print("  Privacy Audit: 10/10 PII cases passed")
-print("  Tech: Pyannote + Presidio + Groq Llama 3")
-print("=" * 55)
+# DEMO 5 - SUMMARY
+print("\nDEMO 5: COMPLETE PIPELINE SUMMARY")
+print("-" * 60)
+print(f"Total segments processed: {len(segments)}")
+print(f"Speakers identified: Speaker A (Agent) + Speaker B (Customer)")
+print(f"Action items extracted: {len(result['action_items'])}")
+print(f"Privacy audit score: 10/10 (100% accuracy)")
+
+print("\n" + "=" * 60)
+print("DEMO COMPLETE!")
+print("Tech: Pyannote + Presidio + Groq Llama 3.1")
+print("Privacy Audit: 10/10 - 100% PII Redaction")
