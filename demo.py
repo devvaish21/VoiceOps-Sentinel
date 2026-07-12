@@ -14,7 +14,7 @@ print("=" * 60)
 with open('sample_transcript.json', 'r') as f:
     transcript = json.load(f)
 
-# Real diarization timestamps
+# Diarization timestamps
 diarization = [
     {'speaker': 'Speaker A', 'start': 0.0,    'end': 7.52},
     {'speaker': 'Speaker B', 'start': 8.08,   'end': 15.04},
