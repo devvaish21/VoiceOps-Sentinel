@@ -9,10 +9,10 @@ configuration = {
         {"lang_code": "en", "model_name": "en_core_web_sm"}
     ],
 }
-
+# Create the NLP engine provider and engine 
 provider = NlpEngineProvider(nlp_configuration=configuration)
 nlp_engine = provider.create_engine()
-
+# Create the analyzer and anonymizer engines
 analyzer = AnalyzerEngine(nlp_engine=nlp_engine)
 anonymizer = AnonymizerEngine()
 
