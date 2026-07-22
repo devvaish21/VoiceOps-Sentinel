@@ -48,6 +48,6 @@ def redact_pii(text: str) -> str:
 # Test the redact_pii function with a sample input
 if __name__ == "__main__":
     # Define a sample test string containing PII
-    test = "Agent: Calling about John Smith. Card is 4111111111111111"
+    test = "Calling about John Smith. Credit Card number is 4111111111111111"
     print("ORIGINAL:", test)
     print("REDACTED:", redact_pii(test))
